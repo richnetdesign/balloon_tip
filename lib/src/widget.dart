@@ -246,6 +246,7 @@ class _BalloonTipState extends State<BalloonTip>
               height: _arrowBox.h,
               fadeAnimation: _fadeAnim,
               semanticsLabel: widget.semanticsLabel,
+              distance: widget.arrowTipDistance
             ),
           ),
         );
@@ -265,6 +266,8 @@ class _BalloonTipState extends State<BalloonTip>
             ),
             // to hide the follower when unlinked from the target
             showWhenUnlinked: widget.showWhenUnlinked,
+
+            // todo draw line
             child: Directionality(
               textDirection: widget.textDirection,
               child: OverlayContainer(

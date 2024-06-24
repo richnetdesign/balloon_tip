@@ -28,11 +28,14 @@ class OverlayArrow extends StatelessWidget {
   /// [semanticsLabel] An optional semanticsLabel to be provided for automation
   final String? semanticsLabel;
 
+  final double distance;
+
   const OverlayArrow({
     required this.position,
     required this.width,
     required this.height,
     required this.fadeAnimation,
+    required this.distance,
     this.color,
     this.semanticsLabel,
     super.key,
@@ -42,14 +45,24 @@ class OverlayArrow extends StatelessWidget {
   Widget _getTriangle() {
     int quarterTurns = 0;
 
+    double x =0.0;
+    double y = 0.0;
+
+    // todo adjust vector
+    // + this.distance
+
+    Vector2 vec;
+
     switch (position) {
       case ArrowPosition.topLeft:
       case ArrowPosition.topCenter:
+        y -= this.distance;
       case ArrowPosition.topRight:
         quarterTurns = 2;
         break;
       case ArrowPosition.bottomLeft:
       case ArrowPosition.bottomCenter:
+        y += this.distance;
       case ArrowPosition.bottomRight:
         break;
     }
@@ -57,7 +70,7 @@ class OverlayArrow extends StatelessWidget {
     return RotatedBox(
       quarterTurns: quarterTurns,
       child: CustomPaint(
-        size: Size(width, height),
+        size: Size(width, height + y),
         painter: TrianglePainter(strokeColor: color ?? Colors.black),
       ),
     );

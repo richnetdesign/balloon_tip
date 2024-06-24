@@ -46,6 +46,7 @@ class MyHomePage extends StatelessWidget {
           onDismiss: () {
             log("on back pressed");
           },
+          arrowTipDistance: 100.0,
           child: FloatingActionButton.small(
             onPressed: () {},
             backgroundColor: Colors.pinkAccent,
