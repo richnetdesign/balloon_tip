@@ -28,6 +28,7 @@ class OverlayArrow extends StatelessWidget {
   /// [semanticsLabel] An optional semanticsLabel to be provided for automation
   final String? semanticsLabel;
 
+  // let the arrow know the distance so we can draw a full line / arrow
   final double distance;
 
   const OverlayArrow({
